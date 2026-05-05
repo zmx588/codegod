@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页设计实验四 - 图书商城</title>
+    <link rel="stylesheet" href="css/lab4-02-071-index.css">
+</head>
+<body>
+    <!-- ===================== 实验4新增：轮播图区域 ===================== -->
+    <div class="banner">
+        <div class="banner-images">
+            <img src="img/banner1.jpg" alt="轮播图1">
+            <img src="img/banner2.jpg" alt="轮播图2">
+            <img src="img/banner3.jpg" alt="轮播图3">
+        </div>
+    </div>
+
+    <!-- ===================== 实验4新增：顶部导航栏（购物车+搜索+登录） ===================== -->
+    <nav class="navbar">
+        <div class="nav-icons">
+            <div class="icon-item">
+                <img src="img/cart.png" alt="购物车" class="cart-icon">
+            </div>
+            <div class="icon-item">
+                <img src="img/search.png" alt="搜索" class="search-icon">
+            </div>
+        </div>
+        <button class="login-btn-top" id="openLoginBtn">登录</button>
+    </nav>
+
+    <!-- 你原来的头部导航（保留不变） -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://img.icons8.com/color/96/000000/books.png" alt="网站Logo">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href=" " class="nav-link">首页</a>
+                <a href="#" class="nav-link">图书分类</a>
+                <a href="#" class="nav-link">热门推荐</a>
+                <a href="#" class="nav-link">新书上市</a>
+                <a href="#" class="nav-link">联系我们</a>
+                <span class="user-info" id="userInfo" style="display: none; margin-left:10px; color:white;"></span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================== 实验4新增：热门图书展示区 ===================== -->
+    <section class="hot-books">
+        <h2>热门图书</h2>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=500&fit=crop" alt="图书1">
+                <p>Web前端开发实战</p>
+            </div>
+            <div class="book-item">
+                <img src="img/css.jpg" alt="图书2">
+                <p>CSS权威指南</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 你原来的主体内容（完全不变） -->
+    <main class="main-content container">
+        <aside class="sidebar left-sidebar">
+            <h3>📚 图书分类导航</h3>
+            <ul class="category-list">
+                <li><a href="#">文学小说</a></li>
+                <li><a href="#">计算机技术</a></li>
+                <li><a href="#">经济管理</a></li>
+                <li><a href="#">社会科学</a></li>
+                <li><a href="#">艺术设计</a></li>
+                <li><a href="#">生活休闲</a></li>
+                <li><a href="#">少儿读物</a></li>
+                <li><a href="#">教育考试</a></li>
+            </ul>
+        </aside>
+
+        <section class="main-area">
+            <div class="section hot-recommend">
+                <h2>🔥 热门推荐</h2>
+                <div class="book-container">
+                    <div class="book-item" id="special-book">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=500&fit=crop" alt="Web前端开发实战" class="book-cover">
+                        <h4>《Web前端开发实战》</h4>
+                        <p class="price">¥68.00</p>
+                        <div class="hover-info">
+                            <h4>《Web前端开发实战》</h4>
+                            <p>作者：张明</p>
+                            <p>出版社：人民邮电出版社</p>
+                            <p>简介：本书全面讲解HTML5、CSS3、JavaScript等前端核心技术，包含大量实战案例，适合初学者和进阶开发者。</p>
+                            <button class="buy-btn">立即购买</button>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item">
+                        <img src="img/css.jpg" alt="CSS权威指南" class="book-cover">
+                        <h4>《CSS权威指南》</h4>
+                        <p class="price">¥79.00</p>
+                    </div>
+                    
+                    <div class="book-item">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=500&fit=crop" alt="JavaScript高级程序设计" class="book-cover">
+                        <h4>《JavaScript高级程序设计》</h4>
+                        <p class="price">¥89.00</p>
+                    </div>
+                    
+                    <div class="book-item">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop" alt="Vue.js实战" class="book-cover">
+                        <h4>《Vue.js实战》</h4>
+                        <p class="price">¥75.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section new-books">
+                <h2>🆕 新书上市</h2>
+                <table class="book-table">
+                    <thead>
+                        <tr>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>出版日期</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>《React全栈开发》</td>
+                            <td>李华</td>
+                            <td>2025-03-15</td>
+                            <td>¥82.00</td>
+                        </tr>
+                        <tr>
+                            <td>《Python数据分析》</td>
+                            <td>王强</td>
+                            <td>2025-03-10</td>
+                            <td>¥76.00</td>
+                        </tr>
+                        <tr>
+                            <td>《移动UI设计》</td>
+                            <td>陈静</td>
+                            <td>2025-03-05</td>
+                            <td>¥69.00</td>
+                        </tr>
+                        <tr>
+                            <td>《数据库原理》</td>
+                            <td>刘伟</td>
+                            <td>2025-02-28</td>
+                            <td>¥88.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <aside class="sidebar right-sidebar">
+            <div class="promotion-box">
+                <h3>🎁 促销信息</h3>
+                <div class="promotion-item">
+                    <h4>满减优惠</h4>
+                    <p>全场满100减20元</p>
+                    <p>满200减50元</p>
+                </div>
+                <div class="promotion-item">
+                    <h4>新人专享</h4>
+                    <p>新用户首单立减15元</p>
+                </div>
+                <div class="promotion-item">
+                    <h4>限时特惠</h4>
+                    <p>部分图书5折起</p>
+                    <p>截止日期：2025-04-30</p>
+                </div>
+                <div class="promotion-item">
+                    <h4>会员特权</h4>
+                    <p>VIP会员享额外9折</p>
+                    <p>免费包邮服务</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div class="clearfix"></div>
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <div class="login-form" id="loginForm">
+                <h2>用户登录</h2>
+                <input type="text" id="loginUsername" placeholder="请输入用户名">
+                <input type="password" id="loginPassword" placeholder="请输入密码">
+                <button class="submit-btn" id="loginSubmitBtn">登录</button>
+                <p class="tip">还没有账号？<span class="switch-btn" id="goRegisterBtn">立即注册</span></p>
+            </div>
+            <div class="register-form" id="registerForm" style="display: none;">
+                <h2>用户注册</h2>
+                <input type="text" id="regUsername" placeholder="请输入用户名">
+                <input type="password" id="regPassword" placeholder="请输入密码">
+                <button class="submit-btn" id="regSubmitBtn">注册</button>
+                <p class="tip">已有账号？<span class="switch-btn" id="goLoginBtn">返回登录</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookItems = document.querySelectorAll('.book-item');
+            bookItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('buy-btn')) {
+                        const title = this.querySelector('h4').textContent;
+                        const price = this.querySelector('.price').textContent;
+                        alert(`您点击了：${title}\n价格：${price}`);
+                    }
+                });
+            });
+            
+            const categoryLinks = document.querySelectorAll('.category-list a');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.textContent;
+                    alert(`您选择了分类：${category}`);
+                });
+            });
+            
+            const buyButtons = document.querySelectorAll('.buy-btn');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    alert('已加入购物车！');
+                });
+            });
+
+            // 登录弹窗绑定（绑定到顶部导航的登录按钮）
+            const openLoginBtn = document.getElementById('openLoginBtn');
+            const loginModal = document.getElementById('loginModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const goRegisterBtn = document.getElementById('goRegisterBtn');
+            const goLoginBtn = document.getElementById('goLoginBtn');
+            const userInfo = document.getElementById('userInfo');
+
+            openLoginBtn.addEventListener('click', () => {
+                loginModal.style.display = 'block';
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === loginModal) loginModal.style.display = 'none';
+            });
+
+            goRegisterBtn.addEventListener('click', () => {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            });
+
+            goLoginBtn.addEventListener('click', () => {
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+
+            document.getElementById('regSubmitBtn').addEventListener('click', () => {
+                const username = document.getElementById('regUsername').value.trim();
+                const password = document.getElementById('regPassword').value.trim();
+                if(!username || !password){ alert('用户名和密码不能为空！'); return; }
+                
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                const isExist = users.some(user => user.username === username);
+                if(isExist){ alert('用户名已存在！'); return; }
+                
+                users.push({username,password});
+                localStorage.setItem('users',JSON.stringify(users));
+                alert('注册成功！请登录');
+                registerForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+
+            document.getElementById('loginSubmitBtn').addEventListener('click', () => {
+                const username = document.getElementById('loginUsername').value.trim();
+                const password = document.getElementById('loginPassword').value.trim();
+                if(!username || !password){ alert('用户名和密码不能为空！'); return; }
+                
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const target = users.find(user => user.username===username && user.password===password);
+                
+                if(target){
+                    alert('登录成功！');
+                    loginModal.style.display = 'none';
+                    openLoginBtn.style.display = 'none';
+                    userInfo.style.display = 'inline-block';
+                    userInfo.textContent = `欢迎你，${username}`;
+                }else{
+                    alert('用户名或密码错误！');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
